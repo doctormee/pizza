@@ -43,6 +43,7 @@ int main( void ) {
     for ( j = 0; j < SHM_SIZE; ++j )
         shmem[j] ^= shmem[j];
     shmdt( shmem );
+    signal( SIGINT, usrhndlr );
     //pause section
     raise( SIGSTOP );
     //remove section
