@@ -6,6 +6,10 @@
 #include <signal.h>
 #include <sys/ipc.h>
 
+void usrhndlr( int s ) {
+    raise( SIGCONT );
+}
+
 #define SEM_SIZE 4 //number of semaphores in the managed set
 #define SHM_SIZE 4 //number of bytes in shared memory
 #define WANTPIZZA 2 //Want pizza semaphore num
