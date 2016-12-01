@@ -71,7 +71,7 @@ int main( int argc, char* argv[] ) {
     
     //macroses for readability is defined here
 #define still_eating ( *shmem )
-   // signal( SIGINT, SIG_IGN ); //ignoring the SIGINT to protect semaphors and shared variable from incorrect change
+   // signal( SIGINT, SIG_IGN ); //ignoring the SIGINT to protect semaphores and shared variable from incorrect change
     //main cycle
     while(1) {
         //trying to take the pizza
