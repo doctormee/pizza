@@ -17,6 +17,7 @@ void usrhndlr( int s ) {
 
 int main( void ) {
     //create section
+    int nfile = open("./manager", O_CREAT, 0666);
     key_t semkey = ftok( "./manager", 0 ); //semaphore keyspace
     key_t shmkey = ftok( "./manager", 1 ); //shared memory keyspace
     int semid = semget( semkey, SEM_SIZE, IPC_CREAT | 0666 );
@@ -49,5 +50,7 @@ int main( void ) {
     //remove section
     semctl( semid, 1, IPC_RMID );
     shmctl( shmid, IPC_RMID, NULL );
+    close( nfile );
+    unlink( "./manager" );
     return 0;
 }
